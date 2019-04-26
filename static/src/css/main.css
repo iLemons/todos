@@ -100,7 +100,7 @@ body .container .todosBox {
   /*width: 80%;*/
   min-height: 10rem;
   margin: 2.5rem auto;
-  border: 1px solid #000;
+  /*border: 1px solid #000;*/
 }
 body .container .todosBox .todosTitle {
   text-align: center;
