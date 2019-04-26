@@ -124,6 +124,8 @@
 				actToComplete: function(index) {
 					let tempItem = this.activeLists.splice(index,1)[0];
 					this.completedLists.push(tempItem);
+					// 更新未完成数组长度计数器
+					this.actveLeftNum = this.activeLists.length;
 				},
 				// completed中元素被选中时触发
 				comToActive: function(index) {
