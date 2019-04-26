@@ -1,0 +1,296 @@
+/*屏幕适配*/
+@media only screen and (width: 320px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media only screen and (width: 360px) {
+  html {
+    font-size: 18px;
+  }
+}
+@media only screen and (width: 375px) {
+  html {
+    font-size: 18.75px;
+  }
+}
+@media only screen and (width: 400px) {
+  html {
+    font-size: 20px;
+  }
+}
+@media only screen and (width: 411px) {
+  html {
+    font-size: 20.55px;
+  }
+}
+@media only screen and (width: 414px) {
+  html {
+    font-size: 20.7px;
+  }
+}
+/*为了促证PC看上舒服而做一个特殊的处理*/
+@media only screen and (min-width: 640px) {
+  html {
+    font-size: 32px;
+  }
+  .todosBox {
+    width: 80%;
+  }
+}
+/*基础样式*/
+body,
+h2,
+h3,
+h4,
+h5,
+ul,
+dl,
+dt,
+dd,
+p {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: roman, Arial, Helvetica, sans-serif;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  background-color: #f8f8f8;
+}
+h2,
+h3,
+h4,
+h5 {
+  font-weight: bold;
+}
+ul {
+  list-style: none;
+}
+a {
+  display: block;
+  text-decoration: none;
+}
+img {
+  display: block;
+  width: 100%;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  zoom: 1;
+}
+body {
+  /*height: 100%;*/
+  /*todos容器*/
+}
+body .container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #f5f5f5;
+}
+body .container .todosBox {
+  /*width: 80%;*/
+  min-height: 10rem;
+  margin: 2.5rem auto;
+  border: 1px solid #000;
+}
+body .container .todosBox .todosTitle {
+  text-align: center;
+  color: #ead7d7;
+  font-size: 3rem;
+}
+body .container .todosBox .todosContentBox {
+  width: 80%;
+  /*min-height: (352rem /32);*/
+  margin: 0 auto;
+}
+body .container .todosBox .todosContentBox .todosContent {
+  width: 100%;
+  min-height: 10rem;
+  position: relative;
+  margin-bottom: 0.8rem;
+  padding-bottom: 1.5rem;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  z-index: 10;
+  box-shadow: 0px 0px 10px #DDD;
+}
+body .container .todosBox .todosContentBox .todosContent .todosContentbg1 {
+  width: 98%;
+  height: 0.2rem;
+  position: absolute;
+  bottom: -0.3rem;
+  left: 0.2rem;
+  border: 1px solid #ddd;
+  box-shadow: 1px 3px 5px #ddd;
+  z-index: 8;
+  background-color: #fff;
+}
+body .container .todosBox .todosContentBox .todosContent .todosContentbg2 {
+  width: 96%;
+  height: 0.4rem;
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0.4rem;
+  border: 1px solid #ddd;
+  z-index: 6;
+  box-shadow: 1px 3px 5px #ddd;
+  background-color: #fff;
+}
+body .container .todosBox .todosContentBox .todosContent .inpBox {
+  width: 100%;
+  height: 1.5625rem;
+  position: relative;
+  box-sizing: border-box;
+}
+body .container .todosBox .todosContentBox .todosContent .inpBox span.icon {
+  display: block;
+  width: 0.375rem;
+  height: 0.375rem;
+  border-bottom: 0.15rem solid #eee;
+  border-right: 0.15rem solid #eee;
+  position: absolute;
+  top: 0.46875rem;
+  left: 0.625rem;
+  transform: rotate(45deg);
+}
+body .container .todosBox .todosContentBox .todosContent .inpBox input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding-left: 2rem;
+  border: 0;
+  font-size: 1rem;
+  box-shadow: inset 0px -2px 2px #ddd;
+}
+body .container .todosBox .todosContentBox .todosContent .inpBox input::-webkit-input-placeholder {
+  /* WebKit browsers */
+  font-style: italic;
+  color: #eee;
+}
+body .container .todosBox .todosContentBox .todosContent .inpBox input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  font-style: italic;
+  color: #eee;
+}
+body .container .todosBox .todosContentBox .todosContent .inpBox input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  font-style: italic;
+  color: #eee;
+}
+body .container .todosBox .todosContentBox .todosContent .inpBox input:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  font-style: italic;
+  color: #eee;
+}
+body .container .todosBox .todosContentBox .todosContent .listBox .listTitle {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 1.5625rem;
+  line-height: 1.5625rem;
+  padding-left: 1rem;
+  color: #DEF;
+  border-bottom: 1px dotted #ddd;
+}
+body .container .todosBox .todosContentBox .todosContent .listBox ul {
+  width: 100%;
+}
+body .container .todosBox .todosContentBox .todosContent .listBox ul li {
+  width: 100%;
+  box-sizing: border-box;
+  height: 1.5625rem;
+  line-height: 1.5625rem;
+  padding-left: 2rem;
+  font-size: 0.8rem;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+body .container .todosBox .todosContentBox .todosContent .listBox ul li span {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.28rem;
+  cursor: pointer;
+  width: 0.9375rem;
+  height: 0.9375rem;
+  border-radius: 50%;
+  border: 2px solid #d6e7e4;
+}
+body .container .todosBox .todosContentBox .todosContent .listBox ul li span::before {
+  display: none;
+  content: "\2713";
+  font-size: 0.8rem;
+  color: #5dc2af;
+  position: absolute;
+  top: -0.25rem;
+  left: 0.15rem;
+}
+body .container .todosBox .todosContentBox .todosContent .listBox ul li span.active::before {
+  display: block;
+}
+body .container .todosBox .todosContentBox .todosContent .listBox ul li.checked {
+  color: #ddd;
+  text-decoration: line-through;
+}
+body .container .todosBox .todosContentBox .todosContent .footerBox {
+  box-sizing: border-box;
+  width: 100%;
+  height: 1.5rem;
+  display: flex;
+  font-size: 0.5rem;
+  color: #ddd;
+  font-weight: normal;
+  line-height: 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0.2rem 0;
+  /*.footerMiddle{
+							flex: 1;
+							text-align: center;
+							box-sizing: border-box;
+							display: flex;
+
+							span{
+								cursor: pointer;
+								border-radius: 5px;
+								flex: 1;
+								box-sizing: border-box;
+								margin: 0 0.2rem;
+							}
+
+							span.active{
+								border: 1px solid red;
+								background-color: #EEE;
+							}
+						}*/
+}
+body .container .todosBox .todosContentBox .todosContent .footerBox .footerLeft {
+  flex: 1;
+  padding-left: 0.5rem;
+  text-align: left;
+  box-sizing: border-box;
+}
+body .container .todosBox .todosContentBox .todosContent .footerBox .footerRight {
+  flex: 1;
+  padding-right: 0.5rem;
+  box-sizing: border-box;
+  text-align: right;
+}
+body .container .todosBox .todosContentBox .todosContent .footerBox .footerRight span {
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.2rem;
+}
+body .container .todosBox .todosContentBox .todosContent .footerBox .footerRight span:hover {
+  background-color: #EEE;
+}

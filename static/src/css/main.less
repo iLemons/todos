@@ -1,0 +1,245 @@
+/*屏幕适配*/
+@import 'adapter.less';
+/*基础样式*/
+@import 'base.less';
+
+body{
+	/*height: 100%;*/
+	/*todos容器*/
+	.container {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		background-color: rgb(245,245,245);
+
+		.todosBox{
+			/*width: 80%;*/
+			min-height: (320rem /32);
+			margin: 2.5rem auto;
+			border: 1px solid #000;
+
+			.todosTitle{
+				text-align: center;
+				color: rgb(234,215,215);
+				font-size: (96rem / 32);
+			}
+
+			.todosContentBox{
+				width: 80%;
+				/*min-height: (352rem /32);*/
+				margin: 0 auto;
+
+				.todosContent{
+					width: 100%;
+					min-height: (320rem /32);
+					position: relative;
+					margin-bottom: 0.8rem;
+					padding-bottom: 1.5rem;
+					background-color: #fff;
+					border: 1px solid #ddd;
+					z-index: 10;
+					box-shadow: 0px 0px 10px #DDD;
+					
+					.todosContentbg1{
+						width: 98%;
+						height: 0.20rem;
+						position: absolute;
+						bottom: -0.30rem;
+						left: 0.20rem;
+						border: 1px solid #ddd;
+						box-shadow: 1px 3px 5px #ddd;
+						z-index: 8;
+						background-color: #fff;
+
+					}
+
+					.todosContentbg2{
+						width: 96%;
+						height: 0.4rem;
+						position: absolute;
+						bottom: -0.5rem;
+						left: 0.4rem;
+						border: 1px solid #ddd;
+						z-index: 6;
+						box-shadow: 1px 3px 5px #ddd;
+						background-color: #fff;
+					}
+
+					.inpBox{
+						width: 100%;
+						height: (50rem /32);
+						position: relative;
+						box-sizing: border-box;
+					
+						span.icon{
+							display: block;
+							width: (12rem / 32);
+							height: (12rem / 32);
+							border-bottom: 0.15rem solid #eee;
+							border-right: 0.15rem solid #eee;
+							position: absolute;
+							top: (15rem / 32);
+							left: (20rem / 32);
+							transform: rotate(45deg);
+						}
+
+						input{
+							display: block;
+							box-sizing: border-box;
+							width: 100%;
+							height: 100%;
+							padding-left: 2rem;
+							border: 0;
+							font-size: (32rem / 32);
+							box-shadow:inset 0px -2px 2px #ddd;
+						}
+						input::-webkit-input-placeholder { /* WebKit browsers */ 
+							font-style: italic; 
+							color: #eee;
+						} 
+						input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+							font-style: italic; 
+							color: #eee;
+						} 
+						input::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+							font-style: italic; 
+							color: #eee;
+						} 
+						input:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+							font-style: italic;
+							color: #eee;
+						}
+					}
+
+					.listBox .listTitle{
+						display: block;
+						box-sizing: border-box;
+						width: 100%;
+						height: (50rem /32);
+						line-height: (50rem /32);
+						padding-left: 1rem;
+						color: #DEF;
+						border-bottom: 1px dotted #ddd;
+					}
+
+					.listBox ul{
+						width: 100%;
+						
+						li{
+							width: 100%;
+							box-sizing: border-box;
+							height: (50rem /32);
+							line-height: (50rem /32);
+							padding-left: 2rem;
+							font-size: 0.8rem;
+							border-bottom: 1px solid #ddd;
+							position: relative;
+
+							span{
+								position:absolute;
+								left: 0.5rem;
+								top: 0.28rem;
+								cursor: pointer;
+								width: (30rem /32);
+								height: (30rem /32);
+								border-radius: 50%;
+								border: 2px solid rgb(214,231,228);
+							}
+
+							span::before{
+								display: none;
+								content: "\2713";
+								font-size: 0.8rem;
+								color: rgb(93,194,175);
+								position: absolute;
+								top: -0.25rem;
+								left: 0.15rem;
+							}
+
+							span.active::before{
+								display: block;
+							}
+
+						}
+
+						li.checked{
+							color: #ddd;
+							text-decoration: line-through;
+						}
+
+					}
+
+					.footerBox{
+						box-sizing: border-box;
+						width: 100%;
+						height: 1.5rem;
+						display: flex;
+						font-size: 0.5rem;
+						color: #ddd;
+						font-weight: normal;
+						line-height: 1rem;
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						padding: 0.2rem 0;
+
+						.footerLeft{
+							flex: 1;
+							padding-left: 0.5rem;
+							text-align: left;
+							box-sizing: border-box;
+						}
+
+						/*.footerMiddle{
+							flex: 1;
+							text-align: center;
+							box-sizing: border-box;
+							display: flex;
+
+							span{
+								cursor: pointer;
+								border-radius: 5px;
+								flex: 1;
+								box-sizing: border-box;
+								margin: 0 0.2rem;
+							}
+
+							span.active{
+								border: 1px solid red;
+								background-color: #EEE;
+							}
+						}*/
+
+						.footerRight{
+							flex: 1;
+							padding-right: 0.5rem;
+							box-sizing: border-box;
+							text-align: right;
+							
+						}
+						
+						.footerRight span{
+							cursor: pointer;
+							padding: 0.2rem 0.5rem;
+							border-radius: 0.2rem;
+						}
+
+						.footerRight span:hover{
+							
+							background-color: #EEE;
+						}
+					}
+
+					
+
+					
+
+				}
+	
+			}
+		}
+	}
+
+
+}
+

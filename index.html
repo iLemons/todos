@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TodoList</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="static/src/css/main.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+	<div class="container" id="container">
+		<div class="todosBox clearfix">
+			<div class="todosTitle">todos</div>
+			<div class="todosContentBox">
+				<div class="todosContent">
+					<div class="todosContentbg1"></div>
+					<div class="todosContentbg2"></div>
+					<div class="inpBox">
+						<span class="icon" ref="inpIcon"></span>
+						<input v-model="inpValue" @focus="inpGetFocus" @blur="inpBlur" @keyup.enter="addItemToact" type="text" placeholder="What needs to be done?">
+					</div>
+					<div class="listBox">
+						<span class="listTitle">Active:</span>
+						<ul >
+							<li-activeitem 
+							v-for="(item, index) in activeLists"
+							:activecontent="item"
+							:index="index"
+							@activeemit="actToComplete"
+
+							></li-activeitem>
+					</ul>
+					</div>
+					<div class="listBox">
+						<span class="listTitle">Completed:</span>
+						<ul >
+							<li-completeditem 
+							v-for="(item, index) in completedLists"
+							:completedcontent="item"
+							:index="index"
+							@completeemit="comToActive"
+							></li-completeditem>
+					</ul>
+					</div>
+					
+					<div class="footerBox">
+						<div class="footerLeft">{{actveLeftNum}} item left</div>
+						<!-- <div class="footerMiddle">
+							<span class="active">All</span>
+							<span>Active</span>
+							<span>Completed</span>
+						</div> -->
+						<div class="footerRight">
+							<span @click="clearComplate">Clear completed</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script>
+
+		Vue.component('li-activeitem',{
+			props: ['activecontent','index'],
+			template:'<li ><span @click="getSelect"  class="checkBox"></span>{{activecontent}}</li>',
+			methods: {
+				// span点击时触发
+				getSelect: function() {
+					// 使用@emit发布事件时，activeEmit这样的命名父组件监听不到
+					this.$emit('activeemit',this.index)
+				}
+			}
+		});
+
+		Vue.component('li-completeditem',{
+			props: ['completedcontent','index'],
+			template:'<li class="checked"><span @click="noSelect" class="checkBox active"></span>{{completedcontent}}</li>',
+			methods: {
+				noSelect: function() {
+					this.$emit('completeemit',this.index)
+				}
+			}
+		})
+		var app = new Vue({
+			el: "#container",
+			data: {
+				name: "hahah",
+				inpValue:"",
+				actveLeftNum: 0,
+				activeLists: [
+					// "vue",
+					// "javascript"					
+				],
+				completedLists: [
+					// "css",
+					// "html"
+				]
+			},
+			methods:{
+				// 输入框获取焦点时，旋转span
+				inpGetFocus: function() {
+					setTimeout(() =>{
+						this.$refs.inpIcon.style.transform = 'rotate(-45deg)';
+						this.$refs.inpIcon.style.borderColor = '#aaa';
+					},0)
+				},
+				// 输入框获取焦点时，span恢复位置
+				inpBlur: function() {
+					setTimeout(() =>{
+						this.$refs.inpIcon.style.transform = 'rotate(45deg)';
+						this.$refs.inpIcon.style.borderColor = '#eee';
+					},0)
+				},
+				addItemToact: function() {
+					this.activeLists.unshift(this.inpValue);
+					// 更新未完成数组长度计数器
+					this.actveLeftNum = this.activeLists.length;
+					// 重置输入框内容
+					this.inpValue = "";
+				},
+				// active中元素被选中时触发
+				actToComplete: function(index) {
+					let tempItem = this.activeLists.splice(index,1)[0];
+					this.completedLists.push(tempItem);
+				},
+				// completed中元素被选中时触发
+				comToActive: function(index) {
+					
+					let tempItem = this.completedLists.splice(index,1)[0];
+					this.activeLists.unshift(tempItem);
+					// 更新未完成数组长度计数器
+					this.actveLeftNum = this.activeLists.length;
+				},
+				// 点击Clear completed时触发，清空已完成事件
+				clearComplate: function() {
+					this.completedLists = [];
+				}
+			}
+		})
+
+	</script>
+
+
+
+</body>
+</html>
